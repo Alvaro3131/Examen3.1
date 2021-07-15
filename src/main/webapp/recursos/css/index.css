@@ -1,0 +1,11 @@
+body{    background-size: cover;
+}
+.container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+h1{
+    margin-left: 20px;
+    margin-top: 5px;
+}

@@ -1,0 +1,50 @@
+body{
+    background: url(/SimulacroExamen2/imagenes/pexels-sanaan-mazhar-3075993\ \(1\).jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+.container{
+    width: 400PX;
+
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+i{
+    size: 20px;
+}
+
+.caja{
+    width: 25%;
+    height: 80vh;
+    border: 2px solid rgb(228, 0, 0);
+    border-radius: 20px;
+    margin: auto;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    margin-top: 100px;
+
+}
+.aBk {
+    width: 180px;
+    background-color: #29447e;
+    border: 0;
+    padding: 6px 18px 6px 18px;
+    font-size: 0.9em;
+    cursor: pointer;
+    margin: 6px 0 6px 0;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+.ha{
+    border: 2px solid rgb(2, 0, 121);
+}
