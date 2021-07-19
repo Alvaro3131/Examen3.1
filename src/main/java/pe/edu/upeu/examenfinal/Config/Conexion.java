@@ -14,12 +14,11 @@ import java.sql.SQLException;
  * @author Alvaro Alva
  */
 public class Conexion {
-     private static final String URL = "jdbc:oracle:thin:@3.238.252.102:1521:ORCL";
-    //private static final String URL = "jdbc:oracle:thin:@localhost:49162:XE";
-    private static final String USER = "LP";
-    private static final String PASS = "123";
-    private static final String DRIVER = "oracle.jdbc.OracleDriver";
-    private static Connection cx = null;
+ private static final String URL="jdbc:mysql://localhost:3306/prueba01?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
+	private static final String USER="root";
+	private static final String PASS="";
+	private static final String DRIVER="com.mysql.cj.jdbc.Driver";
+	private static Connection cx = null;
 
     public static Connection getConexion() {
         try {

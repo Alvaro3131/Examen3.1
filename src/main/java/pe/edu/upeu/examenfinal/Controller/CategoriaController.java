@@ -13,18 +13,17 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import pe.edu.upeu.examenfinal.Dao.PruebaDao;
-import pe.edu.upeu.examenfinal.DaoImpl.PruebaDaoimpl;
-import pe.edu.upeu.examenfinal.model.Prueba;
+import pe.edu.upeu.examenfinal.Dao.CategoriaDao;
+import pe.edu.upeu.examenfinal.DaoImpl.CategoriaDaoImpl;
 
 /**
  *
  * @author Alvaro Alva
  */
-@WebServlet(name = "PruebaController", urlPatterns = {"/pc"})
-public class PruebaController extends HttpServlet {
+@WebServlet(name = "CategoriaController", urlPatterns = {"/cc"})
+public class CategoriaController extends HttpServlet {
 private Gson gson = new Gson();
-	private PruebaDao udao = new PruebaDaoimpl();
+	private CategoriaDao udao = new CategoriaDaoImpl();
 	private static final long serialVersionUID = 1L;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,28 +41,10 @@ private Gson gson = new Gson();
 		int op = Integer.parseInt(request.getParameter("opc"));
          switch (op) {
                 case 1://todos los productos
-                          System.out.println("Prueba1");
+                          System.out.println("PruebaSucursal");
 		          out.println(gson.toJson(udao.readAll()));
 			break;
-		case 2://guardar
-                   System.out.println("Caso2");
-            
-			 String e=request.getParameter("f");
-                         System.out.println(e);
-                         String q=request.getParameter("b");
-                         System.out.println(q);
-			int t=Integer.parseInt(request.getParameter("s"));
-                        System.out.println(t);
-                        int y=Integer.parseInt(request.getParameter("c"));
-                        System.out.println(y);
-                        
-                        System.out.println("Hola");
-			out.println(gson.toJson(udao.create(new Prueba(e,q,t,y))));
-			break;
-                case 5://eliminar
-			int id=Integer.parseInt(request.getParameter("id"));
-			out.println(gson.toJson(udao.delete(id)));
-			break;
+		
 		default:
 			break;
 		}

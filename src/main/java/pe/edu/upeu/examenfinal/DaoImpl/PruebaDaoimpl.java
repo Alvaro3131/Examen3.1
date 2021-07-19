@@ -25,15 +25,15 @@ private PreparedStatement ps = null;
     @Override
     public int create(Prueba s) {
         int x = 0;
-		String SQL = "INSERT INTO producto (idproducto,nombre, precio, stock, categoria_idcategoria) VALUES(?,?,?,?,?)";
+		String SQL = "INSERT INTO venta (idventa,fecha, tipodoc, idsucursal, idcliente) VALUES(null,?,?,?,?)";
 		try {
 			cx = Conexion.getConexion();
 			ps = cx.prepareStatement(SQL);
-                        ps.setInt(1, s.getIdproducto());
-			ps.setString(2, s.getNombre());
-		        ps.setDouble(3, s.getPreio());
-                        ps.setInt(4, s.getStock());
-                        ps.setInt(5, s.getIdcategoria());
+                        
+			ps.setString(1, s.getFecha());
+		        ps.setString(2, s.getDoc());
+                        ps.setInt(3, s.getIdsucursal());
+                        ps.setInt(4, s.getIdcliente());
 			x = ps.executeUpdate();
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -42,67 +42,24 @@ private PreparedStatement ps = null;
 		return x;
     }
 
-    @Override
-    public int update(Prueba s) {
-        int x = 0;
-		String SQL = "update producto set nombre=?, precio=?, stock=?, categoria_idcategoria=? where idproducto = ?";
-		try {
-			cx = Conexion.getConexion();
-			ps = cx.prepareStatement(SQL);
-			ps.setString(1, s.getNombre());
-                        ps.setDouble(2, s.getPreio());
-                        ps.setInt(3, s.getStock());
-                        ps.setInt(4, s.getIdcategoria());
-                        ps.setInt(5, s.getIdproducto());
-			x = ps.executeUpdate();
-		} catch (Exception e) {
-			// TODO: handle exception
-			System.out.println(e);
-		}
-		return x;
-    }
-
-    @Override
-    public Prueba read(int id) {
-        Prueba a = new Prueba();
-		String SQL = "select *from producto where idproducto=?";
-		try {
-			cx = Conexion.getConexion();
-			ps = cx.prepareStatement(SQL);
-			ps.setInt(1, id);
-			rs = ps.executeQuery();
-			while (rs.next()) {				
-				a.setIdproducto(rs.getInt("idproducto"));
-                                a.setNombre(rs.getString("nombre"));
-                                a.setPreio(rs.getDouble("precio"));
-                                a.setStock(rs.getInt("stock"));
-                                a.setIdcategoria(rs.getInt("categoria_idcategoria"));
-                                
-                               
-			}
-
-		} catch (Exception e) {
-			// TODO: handle exception
-			System.out.println(e);
-		}
-		return a;
-    }
+   
 
     @Override
     public List<Prueba> readAll() {
          List<Prueba> lista = new ArrayList<>();
-		String SQL = "select p.idproducto, p.nombre, p.precio, p.stock, c.nombre nombrec from producto p join categoria c on p.categoria_idcategoria=c.idcategoria order by p.idproducto ";
+		String SQL = "SELECT V.IDVENTA, S.NOMSUCURSAL, C.NOMBRES, C.APELLIDOS, V.FECHA, V.TIPODOC FROM VENTA V, CLIENTE C, SUCURSAL S WHERE V.IDCLIENTE = C.IDCLIENTE AND V.IDSUCURSAL = S.IDSUCURSAL ";
 		try {
 			cx = Conexion.getConexion();
 			ps = cx.prepareStatement(SQL);
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				Prueba a = new Prueba();
-				a.setIdproducto(rs.getInt("idproducto"));
-                                a.setNombre(rs.getString("nombre"));
-                                a.setPreio(rs.getDouble("precio"));
-                                a.setStock(rs.getInt("stock"));
-                                a.setNoca(rs.getString("nombrec"));
+                                a.setIdventa(rs.getInt("V.IDVENTA"));
+				a.setSucursal(rs.getString("S.NOMSUCURSAL"));
+                                a.setNombrec(rs.getString("C.NOMBRES"));
+                                a.setApellido(rs.getString("C.APELLIDOS"));
+                                a.setFecha(rs.getString("V.FECHA"));
+                                a.setDoc(rs.getString("V.TIPODOC"));
                              
 				lista.add(a);
 			}
@@ -117,7 +74,7 @@ private PreparedStatement ps = null;
     @Override
     public int delete(int id) {
        int x = 0;
-		String SQL = "delete from producto where idproducto=?";
+		String SQL = "delete from venta where idventa=?";
 		try {
 			cx = Conexion.getConexion();
 			ps = cx.prepareStatement(SQL);

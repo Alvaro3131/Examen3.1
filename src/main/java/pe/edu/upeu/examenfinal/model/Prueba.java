@@ -10,70 +10,86 @@ package pe.edu.upeu.examenfinal.model;
  * @author Alvaro Alva
  */
 public class Prueba {
-private int idproducto;
-private String nombre;
-private double preio;
-private int stock;
-private int idcategoria;
-private String noca;
-
-    public Prueba(int idproducto, String nombre, double preio, int stock, int idcategoria) {
-        this.idproducto = idproducto;
-        this.nombre = nombre;
-        this.preio = preio;
-        this.stock = stock;
-        this.idcategoria = idcategoria;
-        
+private int idventa;
+private String fecha;
+private String doc;
+private int idsucursal;
+private int idcliente;
+private String sucursal;
+private String nombrec;
+private String apellido;
+    public Prueba(String fecha, String doc, int idsucursal, int idcliente) {
+        this.fecha = fecha;
+        this.doc = doc;
+        this.idsucursal = idsucursal;
+        this.idcliente = idcliente;
     }
+
     public Prueba() {
     }
 
-    public int getIdproducto() {
-        return idproducto;
+    public int getIdventa() {
+        return idventa;
     }
 
-    public void setIdproducto(int idproducto) {
-        this.idproducto = idproducto;
+    public void setIdventa(int idventa) {
+        this.idventa = idventa;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getFecha() {
+        return fecha;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 
-    public double getPreio() {
-        return preio;
+    public String getDoc() {
+        return doc;
     }
 
-    public void setPreio(double preio) {
-        this.preio = preio;
+    public void setDoc(String doc) {
+        this.doc = doc;
     }
 
-    public int getStock() {
-        return stock;
+    public int getIdsucursal() {
+        return idsucursal;
     }
 
-    public void setStock(int stock) {
-        this.stock = stock;
+    public void setIdsucursal(int idsucursal) {
+        this.idsucursal = idsucursal;
     }
 
-    public int getIdcategoria() {
-        return idcategoria;
+    public int getIdcliente() {
+        return idcliente;
     }
 
-    public void setIdcategoria(int idcategoria) {
-        this.idcategoria = idcategoria;
+    public void setIdcliente(int idcliente) {
+        this.idcliente = idcliente;
     }
 
-    public String getNoca() {
-        return noca;
+    public String getSucursal() {
+        return sucursal;
     }
 
-    public void setNoca(String noca) {
-        this.noca = noca;
+    public void setSucursal(String sucursal) {
+        this.sucursal = sucursal;
     }
-    
+
+    public String getNombrec() {
+        return nombrec;
+    }
+
+    public void setNombrec(String nombrec) {
+        this.nombrec = nombrec;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
 }

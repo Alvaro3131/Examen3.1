@@ -6,14 +6,11 @@
 package pe.edu.upeu.examenfinal.Dao;
 
 import java.util.List;
-import pe.edu.upeu.examenfinal.model.Prueba;
+import pe.edu.upeu.examenfinal.model.Cliente;
 /**
  *
  * @author Alvaro Alva
  */
-public interface PruebaDao {
-    public int create(Prueba s);
-	
-	public List<Prueba> readAll();
-	public int delete(int id);
+public interface ClienteDao {
+    public List<Cliente> readAll();
 }
